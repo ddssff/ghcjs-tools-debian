@@ -1,0 +1,9 @@
+./doc/*.txt usr/share/ghcjs/doc
+./lib/bin/*.exe.options usr/share/ghcjs/lib/bin
+./lib/bin/*.sh usr/share/ghcjs/lib/bin
+./lib/cache/boot.tar usr/share/ghcjs/lib/cache
+./lib/cache/shims.tar usr/share/ghcjs/lib/cache
+./lib/cache/test.tar usr/share/ghcjs/lib/cache
+./lib/etc/*.html usr/share/ghcjs/lib/etc
+./lib/etc/*.js usr/share/ghcjs/lib/etc
+./lib/etc/*.yaml usr/share/ghcjs/lib/etc
