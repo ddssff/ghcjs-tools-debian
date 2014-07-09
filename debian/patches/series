@@ -1,6 +1,6 @@
 allow-dirty-repo.diff
 ghcjs-home.diff
-ghcjs-old-git.diff
+old-git.diff
 # Uncomment trac-8768-patch-applied.diff if you have ghc-7.8.2 HEAD, or
 # have applied the trac 8768 patch to a version of ghc older than 7.8.3
 # trac-8768-patch-applied.diff
