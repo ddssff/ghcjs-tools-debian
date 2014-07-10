@@ -16,8 +16,8 @@ Build-Depends: debhelper (>= 7.0)
                , alex
                , quilt
                , nodejs (>> 0.10.28)
-               , ghc | libghc-cabal-dev
-               , ghc-prof | libghc-cabal-prof
+               , ghc | libghc-cabal-ghcjs-dev
+               , ghc-prof | libghc-cabal-ghcjs-prof
                , libghc-http-dev (>= 1:4000.2)
                , libghc-http-dev (<< 1:5000)
                , libghc-http-prof (>= 1:4000.2)
@@ -151,7 +151,7 @@ Build-Depends: debhelper (>= 7.0)
                , libghc-vector-dev
                , libghc-vector-prof
 Build-Depends-Indep: ghc-doc
-                     , ghc-doc | libghc-cabal-doc
+                     , ghc-doc | libghc-cabal-ghcjs-doc
                      , libghc-http-doc (>= 1:4000.2)
                      , libghc-http-doc (<< 1:5000)
                      , libghc-aeson-doc (>= 0.7)
