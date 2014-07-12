@@ -3,6 +3,7 @@ Maintainer: Luite Stegeman <stegeman@gmail.com>
 Priority: optional
 Section: haskell
 Build-Depends: debhelper (>= 7.0)
+               , haskell-devscripts
                , cdbs
                , ghc
                , ghc-prof
