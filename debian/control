@@ -1,5 +1,5 @@
 Source: ghcjs-tools
-Maintainer: Luite Stegeman <stegeman@gmail.com>
+Maintainer: David Fox <dsf@seereason.com>
 Priority: optional
 Section: haskell
 Build-Depends: debhelper (>= 7.0)
