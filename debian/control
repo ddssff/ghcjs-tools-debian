@@ -115,8 +115,8 @@ Build-Depends: debhelper (>= 7.0)
                , libghc-tar-dev (<< 0.5)
                , libghc-tar-prof (>= 0.4)
                , libghc-tar-prof (<< 0.5)
-               , libghc-terminfo-dev
-               , libghc-terminfo-prof
+               , ghc | libghc-terminfo-dev
+               , ghc | libghc-terminfo-prof
                , libghc-text-dev (>= 0.11)
                , libghc-text-dev (<< 1.2)
                , libghc-text-prof (>= 0.11)
@@ -201,7 +201,7 @@ Build-Depends-Indep: ghc-doc
                      , libghc-system-filepath-doc (<< 0.5)
                      , libghc-tar-doc (>= 0.4)
                      , libghc-tar-doc (<< 0.5)
-                     , libghc-terminfo-doc
+                     , ghc-doc | libghc-terminfo-doc
                      , libghc-text-doc (>= 0.11)
                      , libghc-text-doc (<< 1.2)
                      , libghc-text-binary-doc (>= 0.1)
