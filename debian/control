@@ -60,7 +60,7 @@ Build-Depends: debhelper (>= 7.0)
                , libghc-haskell-src-meta-prof (>= 0.6.0.3)
                , libghc-haskell-src-meta-prof (<< 0.7)
                , libghc-lens-dev (>= 4.0)
-               , libghc-lens-dev (<< 4.3)
+               , libghc-lens-dev (<< 4.4)
                , libghc-lens-prof (>= 4.0)
                , libghc-lens-prof (<< 4.4)
                , libghc-mtl-prof
