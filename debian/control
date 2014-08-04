@@ -17,8 +17,8 @@ Build-Depends: debhelper (>= 7.0)
                , alex
                , quilt
                , nodejs (>> 0.10.28)
-               , ghc | libghc-cabal-ghcjs-dev
-               , ghc-prof | libghc-cabal-ghcjs-prof
+               , libghc-cabal-ghcjs-dev
+               , libghc-cabal-ghcjs-prof
                , libghc-http-dev (>= 1:4000.2)
                , libghc-http-dev (<< 1:5000)
                , libghc-http-prof (>= 1:4000.2)
@@ -49,6 +49,8 @@ Build-Depends: debhelper (>= 7.0)
                , libghc-ghc-paths-prof
                , libghc-ghcjs-prim-dev
                , libghc-ghcjs-prim-prof
+               , libghc-haddock-internal-dev
+               , libghc-haddock-internal-prof
                , libghc-hashable-dev
                , libghc-hashable-prof
                , libghc-haskell-src-exts-dev (>= 1.15)
@@ -63,6 +65,7 @@ Build-Depends: debhelper (>= 7.0)
                , libghc-lens-dev (<< 4.4)
                , libghc-lens-prof (>= 4.0)
                , libghc-lens-prof (<< 4.4)
+               , libghc-mtl-dev
                , libghc-mtl-prof
                , libghc-network-dev
                , libghc-network-prof
@@ -114,8 +117,6 @@ Build-Depends: debhelper (>= 7.0)
                , libghc-tar-dev (<< 0.5)
                , libghc-tar-prof (>= 0.4)
                , libghc-tar-prof (<< 0.5)
-               , ghc | libghc-terminfo-dev
-               , ghc | libghc-terminfo-prof
                , libghc-text-dev (>= 0.11)
                , libghc-text-dev (<< 1.2)
                , libghc-text-prof (>= 0.11)
@@ -167,6 +168,7 @@ Build-Depends-Indep: ghc-doc
                      , libghc-executable-path-doc (<< 0.1)
                      , libghc-ghc-paths-doc
                      , libghc-ghcjs-prim-doc
+                     , libghc-haddock-internal-doc
                      , libghc-hashable-doc
                      , libghc-haskell-src-exts-doc (>= 1.15)
                      , libghc-haskell-src-exts-doc (<< 1.16)
@@ -200,7 +202,6 @@ Build-Depends-Indep: ghc-doc
                      , libghc-system-filepath-doc (<< 0.5)
                      , libghc-tar-doc (>= 0.4)
                      , libghc-tar-doc (<< 0.5)
-                     , ghc-doc | libghc-terminfo-doc
                      , libghc-text-doc (>= 0.11)
                      , libghc-text-doc (<< 1.2)
                      , libghc-text-binary-doc (>= 0.1)
