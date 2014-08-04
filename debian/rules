@@ -10,6 +10,12 @@ include /usr/share/cdbs/1/class/hlibrary.mk
 
 pre-build::
 	dh_quilt_patch
+	SUFFIX="0.1.0-$(shell ghc --numeric-version)"; \
+	(echo "/usr/bin/ghcjs-$$SUFFIX /usr/bin/ghcjs"; \
+	 echo "/usr/bin/ghcjs-boot-$$SUFFIX /usr/bin/ghcjs-boot"; \
+	 echo "/usr/bin/ghcjs-pkg-$$SUFFIX /usr/bin/ghcjs-pkg"; \
+	 echo "/usr/bin/haddock-ghcjs-$$SUFFIX /usr/bin/haddock-ghcjs") \
+	  > debian/ghcjs-tools.links
 	utils/update_archives.sh
 
 build/ghcjs-tools:: build-ghc-stamp
