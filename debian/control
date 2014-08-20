@@ -11,6 +11,7 @@ Build-Depends: debhelper (>= 7.0)
                , git
                , cpp
                , autoconf
+               , libtool
                , patch
                , make
                , happy
