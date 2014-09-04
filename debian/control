@@ -71,9 +71,9 @@ Build-Depends: debhelper (>= 7.0)
                , libghc-network-dev
                , libghc-network-prof
                , libghc-optparse-applicative-dev (>= 0.9)
-               , libghc-optparse-applicative-dev (<< 0.10)
+               , libghc-optparse-applicative-dev (<< 0.11)
                , libghc-optparse-applicative-prof (>= 0.9)
-               , libghc-optparse-applicative-prof (<< 0.10)
+               , libghc-optparse-applicative-prof (<< 0.11)
                , libghc-parallel-dev (>= 3.2)
                , libghc-parallel-dev (<< 3.3)
                , libghc-parallel-prof (>= 3.2)
@@ -182,7 +182,7 @@ Build-Depends-Indep: ghc-doc
                      , libghc-mtl-doc
                      , libghc-network-doc
                      , libghc-optparse-applicative-doc (>= 0.9)
-                     , libghc-optparse-applicative-doc (<< 0.10)
+                     , libghc-optparse-applicative-doc (<< 0.11)
                      , libghc-parallel-doc (>= 3.2)
                      , libghc-parallel-doc (<< 3.3)
                      , libghc-parsec3-doc (>= 3.1)
