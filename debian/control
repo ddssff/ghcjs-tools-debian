@@ -55,17 +55,17 @@ Build-Depends: debhelper (>= 7.0)
                , libghc-hashable-dev
                , libghc-hashable-prof
                , libghc-haskell-src-exts-dev (>= 1.15)
-               , libghc-haskell-src-exts-dev (<< 1.16)
+               , libghc-haskell-src-exts-dev (<< 1.17)
                , libghc-haskell-src-exts-prof (>= 1.15)
-               , libghc-haskell-src-exts-prof (<< 1.16)
+               , libghc-haskell-src-exts-prof (<< 1.17)
                , libghc-haskell-src-meta-dev (>= 0.6.0.3)
                , libghc-haskell-src-meta-dev (<< 0.7)
                , libghc-haskell-src-meta-prof (>= 0.6.0.3)
                , libghc-haskell-src-meta-prof (<< 0.7)
                , libghc-lens-dev (>= 4.0)
-               , libghc-lens-dev (<< 4.4)
+               , libghc-lens-dev (<< 4.5)
                , libghc-lens-prof (>= 4.0)
-               , libghc-lens-prof (<< 4.4)
+               , libghc-lens-prof (<< 4.5)
                , libghc-mtl-dev
                , libghc-mtl-prof
                , libghc-network-dev
@@ -174,11 +174,11 @@ Build-Depends-Indep: ghc-doc
                      , libghc-haddock-api-doc (>= 2.15)
                      , libghc-hashable-doc
                      , libghc-haskell-src-exts-doc (>= 1.15)
-                     , libghc-haskell-src-exts-doc (<< 1.16)
+                     , libghc-haskell-src-exts-doc (<< 1.17)
                      , libghc-haskell-src-meta-doc (>= 0.6.0.3)
                      , libghc-haskell-src-meta-doc (<< 0.7)
                      , libghc-lens-doc (>= 4.0)
-                     , libghc-lens-doc (<< 4.4)
+                     , libghc-lens-doc (<< 4.5)
                      , libghc-mtl-doc
                      , libghc-network-doc
                      , libghc-optparse-applicative-doc (>= 0.9)
