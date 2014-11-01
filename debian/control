@@ -1,305 +1,252 @@
 Source: ghcjs-tools
-Maintainer: David Fox <dsf@seereason.com>
-Priority: optional
+Maintainer: Luite Stegeman <stegeman@gmail.com>
+Priority: extra
 Section: haskell
-Build-Depends: debhelper (>= 7.0)
-               , haskell-devscripts
-               , cdbs
-               , ghc
-               , ghc-prof
-               , cabal-install-ghcjs
-               , git
-               , cpp
-               , autoconf
-               , libtool
-               , patch
-               , make
-               , happy
-               , alex
-               , quilt
-               , nodejs (>> 0.10.28)
-               , libghc-cabal-ghcjs-dev
-               , libghc-cabal-ghcjs-prof
-               , libghc-http-dev (>= 1:4000.2)
-               , libghc-http-dev (<< 1:5000)
-               , libghc-http-prof (>= 1:4000.2)
-               , libghc-http-prof (<< 1:5000)
-               , libghc-aeson-dev (>= 0.7)
-               , libghc-aeson-dev (<< 0.9)
-               , libghc-aeson-prof (>= 0.7)
-               , libghc-aeson-prof (<< 0.9)
-               , libghc-attoparsec-dev (>= 0.12)
-               , libghc-attoparsec-dev (<< 0.13)
-               , libghc-attoparsec-prof (>= 0.12)
-               , libghc-attoparsec-prof (<< 0.13)
-               , libghc-base16-bytestring-dev (>= 0.1)
-               , libghc-base16-bytestring-dev (<< 0.2)
-               , libghc-base16-bytestring-prof (>= 0.1)
-               , libghc-base16-bytestring-prof (<< 0.2)
-               , libghc-cryptohash-dev (>= 0.11)
-               , libghc-cryptohash-dev (<< 0.12)
-               , libghc-cryptohash-prof (>= 0.11)
-               , libghc-cryptohash-prof (<< 0.12)
-               , libghc-data-default-dev (>= 0.5)
-               , libghc-data-default-dev (<< 0.6)
-               , libghc-data-default-prof (>= 0.5)
-               , libghc-data-default-prof (<< 0.6)
-               , libghc-executable-path-dev (<< 0.1)
-               , libghc-executable-path-prof (<< 0.1)
-               , libghc-ghc-paths-dev
-               , libghc-ghc-paths-prof
-               , libghc-ghcjs-prim-dev
-               , libghc-ghcjs-prim-prof
-               , libghc-haddock-api-dev (>= 2.15)
-               , libghc-haddock-api-prof (>= 2.15)
-               , libghc-hashable-dev
-               , libghc-hashable-prof
-               , libghc-haskell-src-exts-dev (>= 1.15)
-               , libghc-haskell-src-exts-dev (<< 1.17)
-               , libghc-haskell-src-exts-prof (>= 1.15)
-               , libghc-haskell-src-exts-prof (<< 1.17)
-               , libghc-haskell-src-meta-dev (>= 0.6.0.3)
-               , libghc-haskell-src-meta-dev (<< 0.7)
-               , libghc-haskell-src-meta-prof (>= 0.6.0.3)
-               , libghc-haskell-src-meta-prof (<< 0.7)
-               , libghc-lens-dev (>= 4.0)
-               , libghc-lens-dev (<< 4.5)
-               , libghc-lens-prof (>= 4.0)
-               , libghc-lens-prof (<< 4.5)
-               , libghc-mtl-dev
-               , libghc-mtl-prof
-               , libghc-network-dev
-               , libghc-network-prof
-               , libghc-optparse-applicative-dev (>= 0.9)
-               , libghc-optparse-applicative-dev (<< 0.11)
-               , libghc-optparse-applicative-prof (>= 0.9)
-               , libghc-optparse-applicative-prof (<< 0.11)
-               , libghc-parallel-dev (>= 3.2)
-               , libghc-parallel-dev (<< 3.3)
-               , libghc-parallel-prof (>= 3.2)
-               , libghc-parallel-prof (<< 3.3)
-               , libghc-parsec3-dev (>= 3.1)
-               , libghc-parsec3-dev (<< 3.2)
-               , libghc-parsec3-prof (>= 3.1)
-               , libghc-parsec3-prof (<< 3.2)
-               , libghc-regex-posix-dev (>= 0.90)
-               , libghc-regex-posix-dev (<< 0.100)
-               , libghc-regex-posix-prof (>= 0.90)
-               , libghc-regex-posix-prof (<< 0.100)
-               , libghc-safe-dev (>= 0.3)
-               , libghc-safe-dev (<< 0.4)
-               , libghc-safe-prof (>= 0.3)
-               , libghc-safe-prof (<< 0.4)
-               , libghc-shelly-dev (>= 1.5)
-               , libghc-shelly-dev (<< 1.6)
-               , libghc-shelly-prof (>= 1.5)
-               , libghc-shelly-prof (<< 1.6)
-               , libghc-split-dev (>= 0.2)
-               , libghc-split-dev (<< 0.3)
-               , libghc-split-prof (>= 0.2)
-               , libghc-split-prof (<< 0.3)
-               , libghc-stringsearch-dev (>= 0.3)
-               , libghc-stringsearch-dev (<< 0.4)
-               , libghc-stringsearch-prof (>= 0.3)
-               , libghc-stringsearch-prof (<< 0.4)
-               , libghc-syb-dev (>= 0.4)
-               , libghc-syb-dev (<< 0.5)
-               , libghc-syb-prof (>= 0.4)
-               , libghc-syb-prof (<< 0.5)
-               , libghc-system-fileio-dev (>= 0.3)
-               , libghc-system-fileio-dev (<< 0.4)
-               , libghc-system-fileio-prof (>= 0.3)
-               , libghc-system-fileio-prof (<< 0.4)
-               , libghc-system-filepath-dev (>= 0.4)
-               , libghc-system-filepath-dev (<< 0.5)
-               , libghc-system-filepath-prof (>= 0.4)
-               , libghc-system-filepath-prof (<< 0.5)
-               , libghc-tar-dev (>= 0.4)
-               , libghc-tar-dev (<< 0.5)
-               , libghc-tar-prof (>= 0.4)
-               , libghc-tar-prof (<< 0.5)
-               , libghc-text-dev (>= 0.11)
-               , libghc-text-dev (<< 1.2)
-               , libghc-text-prof (>= 0.11)
-               , libghc-text-prof (<< 1.2)
-               , libghc-text-binary-dev (>= 0.1)
-               , libghc-text-binary-dev (<< 0.2)
-               , libghc-text-binary-prof (>= 0.1)
-               , libghc-text-binary-prof (<< 0.2)
-               , libghc-transformers-compat-dev (>= 0.3.3.3)
-               , libghc-transformers-compat-prof (>= 0.3.3.3)
-               , libghc-unix-compat-dev (>= 0.4)
-               , libghc-unix-compat-dev (<< 0.5)
-               , libghc-unix-compat-prof (>= 0.4)
-               , libghc-unix-compat-prof (<< 0.5)
-               , libghc-unordered-containers-dev (>= 0.2)
-               , libghc-unordered-containers-dev (<< 0.3)
-               , libghc-unordered-containers-prof (>= 0.2)
-               , libghc-unordered-containers-prof (<< 0.3)
-               , libghc-vector-dev (>= 0.10)
-               , libghc-vector-dev (<< 0.11)
-               , libghc-vector-prof (>= 0.10)
-               , libghc-vector-prof (<< 0.11)
-               , libghc-wl-pprint-text-dev (>= 1.1)
-               , libghc-wl-pprint-text-dev (<< 1.2)
-               , libghc-wl-pprint-text-prof (>= 1.1)
-               , libghc-wl-pprint-text-prof (<< 1.2)
-               , libghc-yaml-dev (>= 0.8)
-               , libghc-yaml-dev (<< 0.9)
-               , libghc-yaml-prof (>= 0.8)
-               , libghc-yaml-prof (<< 0.9)
-               , libghc-lens-dev
-               , libghc-lens-prof
-               , libghc-unordered-containers-dev
-               , libghc-unordered-containers-prof
-               , libghc-vector-dev
-               , libghc-vector-prof
-Build-Depends-Indep: ghc-doc
-                     , ghc-doc | libghc-cabal-ghcjs-doc
-                     , libghc-http-doc (>= 1:4000.2)
-                     , libghc-http-doc (<< 1:5000)
-                     , libghc-aeson-doc (>= 0.7)
-                     , libghc-aeson-doc (<< 0.9)
-                     , libghc-attoparsec-doc (>= 0.12)
-                     , libghc-attoparsec-doc (<< 0.13)
-                     , libghc-base16-bytestring-doc (>= 0.1)
-                     , libghc-base16-bytestring-doc (<< 0.2)
-                     , libghc-cryptohash-doc (>= 0.11)
-                     , libghc-cryptohash-doc (<< 0.12)
-                     , libghc-data-default-doc (>= 0.5)
-                     , libghc-data-default-doc (<< 0.6)
-                     , libghc-executable-path-doc (<< 0.1)
-                     , libghc-ghc-paths-doc
-                     , libghc-ghcjs-prim-doc
-                     , libghc-haddock-api-doc (>= 2.15)
-                     , libghc-hashable-doc
-                     , libghc-haskell-src-exts-doc (>= 1.15)
-                     , libghc-haskell-src-exts-doc (<< 1.17)
-                     , libghc-haskell-src-meta-doc (>= 0.6.0.3)
-                     , libghc-haskell-src-meta-doc (<< 0.7)
-                     , libghc-lens-doc (>= 4.0)
-                     , libghc-lens-doc (<< 4.5)
-                     , libghc-mtl-doc
-                     , libghc-network-doc
-                     , libghc-optparse-applicative-doc (>= 0.9)
-                     , libghc-optparse-applicative-doc (<< 0.11)
-                     , libghc-parallel-doc (>= 3.2)
-                     , libghc-parallel-doc (<< 3.3)
-                     , libghc-parsec3-doc (>= 3.1)
-                     , libghc-parsec3-doc (<< 3.2)
-                     , libghc-regex-posix-doc (>= 0.90)
-                     , libghc-regex-posix-doc (<< 0.100)
-                     , libghc-safe-doc (>= 0.3)
-                     , libghc-safe-doc (<< 0.4)
-                     , libghc-shelly-doc (>= 1.5)
-                     , libghc-shelly-doc (<< 1.6)
-                     , libghc-split-doc (>= 0.2)
-                     , libghc-split-doc (<< 0.3)
-                     , libghc-stringsearch-doc (>= 0.3)
-                     , libghc-stringsearch-doc (<< 0.4)
-                     , libghc-syb-doc (>= 0.4)
-                     , libghc-syb-doc (<< 0.5)
-                     , libghc-system-fileio-doc (>= 0.3)
-                     , libghc-system-fileio-doc (<< 0.4)
-                     , libghc-system-filepath-doc (>= 0.4)
-                     , libghc-system-filepath-doc (<< 0.5)
-                     , libghc-tar-doc (>= 0.4)
-                     , libghc-tar-doc (<< 0.5)
-                     , libghc-text-doc (>= 0.11)
-                     , libghc-text-doc (<< 1.2)
-                     , libghc-text-binary-doc (>= 0.1)
-                     , libghc-text-binary-doc (<< 0.2)
-                     , libghc-transformers-compat-doc (>= 0.3.3.3)
-                     , libghc-unix-compat-doc (>= 0.4)
-                     , libghc-unix-compat-doc (<< 0.5)
-                     , libghc-unordered-containers-doc (>= 0.2)
-                     , libghc-unordered-containers-doc (<< 0.3)
-                     , libghc-vector-doc (>= 0.10)
-                     , libghc-vector-doc (<< 0.11)
-                     , libghc-wl-pprint-text-doc (>= 1.1)
-                     , libghc-wl-pprint-text-doc (<< 1.2)
-                     , libghc-yaml-doc (>= 0.8)
-                     , libghc-yaml-doc (<< 0.9)
+Build-Depends: debhelper (>= 7.0),
+ haskell-devscripts,
+ cdbs,
+ ghc,
+ ghc-prof,
+ cabal-install-ghcjs,
+ git,
+ cpp,
+ autoconf,
+ libtool,
+ patch,
+ make,
+ happy,
+ alex,
+ quilt,
+ nodejs (>> 0.10.28),
+ libghc-cabal-ghcjs-dev,
+ libghc-cabal-ghcjs-prof,
+ libghc-http-dev (>= 1:4000.2),
+ libghc-http-dev (<< 1:5000),
+ libghc-http-prof,
+ libghc-aeson-dev (>= 0.7),
+ libghc-aeson-dev (<< 0.9),
+ libghc-aeson-prof,
+ libghc-attoparsec-dev (>= 0.12),
+ libghc-attoparsec-dev (<< 0.13),
+ libghc-attoparsec-prof,
+ libghc-base16-bytestring-dev (>= 0.1),
+ libghc-base16-bytestring-dev (<< 0.2),
+ libghc-base16-bytestring-prof,
+ libghc-cryptohash-dev (>= 0.11),
+ libghc-cryptohash-dev (<< 0.12),
+ libghc-cryptohash-prof,
+ libghc-data-default-dev (>= 0.5),
+ libghc-data-default-dev (<< 0.6),
+ libghc-data-default-prof,
+ libghc-executable-path-dev (<< 0.1),
+ libghc-executable-path-prof,
+ libghc-ghc-paths-dev,
+ libghc-ghc-paths-prof,
+ libghc-ghcjs-prim-dev,
+ libghc-ghcjs-prim-prof,
+ libghc-haddock-api-dev (>= 2.15),
+ libghc-haddock-api-prof,
+ libghc-hashable-dev,
+ libghc-hashable-prof,
+ libghc-haskell-src-exts-dev (>= 1.15),
+ libghc-haskell-src-exts-dev (<< 1.17),
+ libghc-haskell-src-exts-prof,
+ libghc-haskell-src-meta-dev (>= 0.6.0.3),
+ libghc-haskell-src-meta-dev (<< 0.7),
+ libghc-haskell-src-meta-prof,
+ libghc-lens-dev (>= 4.0),
+ libghc-lens-dev (<< 4.6),
+ libghc-lens-prof,
+ libghc-mtl-dev,
+ libghc-mtl-prof,
+ libghc-network-dev,
+ libghc-network-prof,
+ libghc-optparse-applicative-dev (>= 0.9),
+ libghc-optparse-applicative-dev (<< 0.11),
+ libghc-optparse-applicative-prof,
+ libghc-parallel-dev (>= 3.2),
+ libghc-parallel-dev (<< 3.3),
+ libghc-parallel-prof,
+ libghc-parsec3-dev (>= 3.1),
+ libghc-parsec3-dev (<< 3.2),
+ libghc-parsec3-prof,
+ libghc-regex-posix-dev (>= 0.90),
+ libghc-regex-posix-dev (<< 0.100),
+ libghc-regex-posix-prof,
+ libghc-safe-dev (>= 0.3),
+ libghc-safe-dev (<< 0.4),
+ libghc-safe-prof,
+ libghc-shelly-dev (>= 1.5),
+ libghc-shelly-dev (<< 1.6),
+ libghc-shelly-prof,
+ libghc-split-dev (>= 0.2),
+ libghc-split-dev (<< 0.3),
+ libghc-split-prof,
+ libghc-stringsearch-dev (>= 0.3),
+ libghc-stringsearch-dev (<< 0.4),
+ libghc-stringsearch-prof,
+ libghc-syb-dev (>= 0.4),
+ libghc-syb-dev (<< 0.5),
+ libghc-syb-prof,
+ libghc-system-fileio-dev (>= 0.3),
+ libghc-system-fileio-dev (<< 0.4),
+ libghc-system-fileio-prof,
+ libghc-system-filepath-dev (>= 0.4),
+ libghc-system-filepath-dev (<< 0.5),
+ libghc-system-filepath-prof,
+ libghc-tar-dev (>= 0.4),
+ libghc-tar-dev (<< 0.5),
+ libghc-tar-prof,
+ libghc-text-dev (>= 0.11),
+ libghc-text-dev (<< 1.2),
+ libghc-text-prof,
+ libghc-text-binary-dev (>= 0.1),
+ libghc-text-binary-dev (<< 0.2),
+ libghc-text-binary-prof,
+ libghc-transformers-compat-dev (>= 0.3.3.3),
+ libghc-transformers-compat-prof,
+ libghc-unix-compat-dev (>= 0.4),
+ libghc-unix-compat-dev (<< 0.5),
+ libghc-unix-compat-prof,
+ libghc-unordered-containers-dev (>= 0.2),
+ libghc-unordered-containers-dev (<< 0.3),
+ libghc-unordered-containers-prof,
+ libghc-vector-dev (>= 0.10),
+ libghc-vector-dev (<< 0.11),
+ libghc-vector-prof,
+ libghc-wl-pprint-text-dev (>= 1.1),
+ libghc-wl-pprint-text-dev (<< 1.2),
+ libghc-wl-pprint-text-prof,
+ libghc-yaml-dev (>= 0.8),
+ libghc-yaml-dev (<< 0.9),
+ libghc-yaml-prof,
+ libghc-lens-dev,
+ libghc-lens-prof,
+ libghc-unordered-containers-dev,
+ libghc-unordered-containers-prof,
+ libghc-vector-dev,
+ libghc-vector-prof,
+Build-Depends-Indep: ghc-doc,
+ ghc-doc | libghc-cabal-ghcjs-doc,
+ libghc-http-doc (>= 1:4000.2),
+ libghc-http-doc (<< 1:5000),
+ libghc-aeson-doc (>= 0.7),
+ libghc-aeson-doc (<< 0.9),
+ libghc-attoparsec-doc (>= 0.12),
+ libghc-attoparsec-doc (<< 0.13),
+ libghc-base16-bytestring-doc (>= 0.1),
+ libghc-base16-bytestring-doc (<< 0.2),
+ libghc-cryptohash-doc (>= 0.11),
+ libghc-cryptohash-doc (<< 0.12),
+ libghc-data-default-doc (>= 0.5),
+ libghc-data-default-doc (<< 0.6),
+ libghc-executable-path-doc (<< 0.1),
+ libghc-ghc-paths-doc,
+ libghc-ghcjs-prim-doc,
+ libghc-haddock-api-doc (>= 2.15),
+ libghc-hashable-doc,
+ libghc-haskell-src-exts-doc (>= 1.15),
+ libghc-haskell-src-exts-doc (<< 1.17),
+ libghc-haskell-src-meta-doc (>= 0.6.0.3),
+ libghc-haskell-src-meta-doc (<< 0.7),
+ libghc-lens-doc (>= 4.0),
+ libghc-lens-doc (<< 4.6),
+ libghc-mtl-doc,
+ libghc-network-doc,
+ libghc-optparse-applicative-doc (>= 0.9),
+ libghc-optparse-applicative-doc (<< 0.11),
+ libghc-parallel-doc (>= 3.2),
+ libghc-parallel-doc (<< 3.3),
+ libghc-parsec3-doc (>= 3.1),
+ libghc-parsec3-doc (<< 3.2),
+ libghc-regex-posix-doc (>= 0.90),
+ libghc-regex-posix-doc (<< 0.100),
+ libghc-safe-doc (>= 0.3),
+ libghc-safe-doc (<< 0.4),
+ libghc-shelly-doc (>= 1.5),
+ libghc-shelly-doc (<< 1.6),
+ libghc-split-doc (>= 0.2),
+ libghc-split-doc (<< 0.3),
+ libghc-stringsearch-doc (>= 0.3),
+ libghc-stringsearch-doc (<< 0.4),
+ libghc-syb-doc (>= 0.4),
+ libghc-syb-doc (<< 0.5),
+ libghc-system-fileio-doc (>= 0.3),
+ libghc-system-fileio-doc (<< 0.4),
+ libghc-system-filepath-doc (>= 0.4),
+ libghc-system-filepath-doc (<< 0.5),
+ libghc-tar-doc (>= 0.4),
+ libghc-tar-doc (<< 0.5),
+ libghc-text-doc (>= 0.11),
+ libghc-text-doc (<< 1.2),
+ libghc-text-binary-doc (>= 0.1),
+ libghc-text-binary-doc (<< 0.2),
+ libghc-transformers-compat-doc (>= 0.3.3.3),
+ libghc-unix-compat-doc (>= 0.4),
+ libghc-unix-compat-doc (<< 0.5),
+ libghc-unordered-containers-doc (>= 0.2),
+ libghc-unordered-containers-doc (<< 0.3),
+ libghc-vector-doc (>= 0.10),
+ libghc-vector-doc (<< 0.11),
+ libghc-wl-pprint-text-doc (>= 1.1),
+ libghc-wl-pprint-text-doc (<< 1.2),
+ libghc-yaml-doc (>= 0.8),
+ libghc-yaml-doc (<< 0.9),
+X-Description: 
+ Haskell to JavaScript compiler
 
 Package: libghc-ghcjs-dev
 Architecture: any
-Depends: ${shlibs:Depends}
-         , ${haskell:Depends}
-         , ${misc:Depends}
-Recommends: ${haskell:Recommends}
-Suggests: ${haskell:Suggests}
-Conflicts: ${haskell:Conflicts}
-Provides: ${haskell:Provides}
-Replaces: ${haskell:Replaces}
-Description: No short description available
- Haskell to JavaScript compiler
- .
-  Author: Victor Nazarov, Hamish Mackenzie, Luite Stegeman
-  Upstream-Maintainer: Luite Stegeman <stegeman@gmail.com>
- .
- This package provides a library for the Haskell programming language.
- See http:///www.haskell.org/ for more information on Haskell.
-
+Depends: ${haskell:Depends},
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends: ${haskell:Recommends},
+Suggests: ${haskell:Suggests},
+Conflicts: ${haskell:Conflicts},
+Provides: ${haskell:Provides},
+Description: ${haskell:ShortDescription}${haskell:ShortBlurb}
+  ${haskell:LongDescription}
+  .
+  ${haskell:Blurb}
 
 Package: libghc-ghcjs-prof
 Architecture: any
-Depends: ${shlibs:Depends}
-         , ${haskell:Depends}
-         , ${misc:Depends}
-Recommends: ${haskell:Recommends}
-Suggests: ${haskell:Suggests}
-Conflicts: ${haskell:Conflicts}
-Provides: ${haskell:Provides}
-Replaces: ${haskell:Replaces}
-Description: No short description available
- Haskell to JavaScript compiler
- .
-  Author: Victor Nazarov, Hamish Mackenzie, Luite Stegeman
-  Upstream-Maintainer: Luite Stegeman <stegeman@gmail.com>
- .
- This package provides a library for the Haskell programming language, compiled
- for profiling.  See http:///www.haskell.org/ for more information on Haskell.
-
+Depends: ${haskell:Depends},
+ ${misc:Depends},
+Recommends: ${haskell:Recommends},
+Suggests: ${haskell:Suggests},
+Conflicts: ${haskell:Conflicts},
+Provides: ${haskell:Provides},
+Description: ${haskell:ShortDescription}${haskell:ShortBlurb}
+  ${haskell:LongDescription}
+  .
+  ${haskell:Blurb}
 
 Package: libghc-ghcjs-doc
 Architecture: all
 Section: doc
-Depends: ${shlibs:Depends}
-         , ${haskell:Depends}
-         , ${misc:Depends}
-Recommends: ${haskell:Recommends}
-Suggests: ${haskell:Suggests}
-Conflicts: ${haskell:Conflicts}
-Provides: ${haskell:Provides}
-Replaces: ${haskell:Replaces}
-Description: No short description available
- Haskell to JavaScript compiler
- .
-  Author: Victor Nazarov, Hamish Mackenzie, Luite Stegeman
-  Upstream-Maintainer: Luite Stegeman <stegeman@gmail.com>
- .
- This package provides the documentation for a library for the Haskell
- programming language.
- See http:///www.haskell.org/ for more information on Haskell.
-
+Depends: ${haskell:Depends},
+ ${misc:Depends},
+Recommends: ${haskell:Recommends},
+Suggests: ${haskell:Suggests},
+Conflicts: ${haskell:Conflicts},
+Description: ${haskell:ShortDescription}${haskell:ShortBlurb}
+  ${haskell:LongDescription}
+  .
+  ${haskell:Blurb}
 
 Package: ghcjs-tools
 Architecture: any
 Section: misc
-Depends: ${shlibs:Depends}
-         , ${haskell:Depends}
-         , ${misc:Depends}
-         , haddock-api
-Recommends: ${haskell:Recommends}
-Suggests: ${haskell:Suggests}
-Conflicts: ${haskell:Conflicts}
-Provides: ${haskell:Provides}
-Replaces: ${haskell:Replaces}
-Description: No short description available
- Haskell to JavaScript compiler
- .
-  Author: Victor Nazarov, Hamish Mackenzie, Luite Stegeman
-  Upstream-Maintainer: Luite Stegeman <stegeman@gmail.com>
- .
- Files associated with the ghcjs package.
-
+Depends: ${haskell:Depends},
+ ${misc:Depends},
+ ${shlibs:Depends},
+ haddock-api,
+Recommends: ${haskell:Recommends},
+Suggests: ${haskell:Suggests},
+Conflicts: ${haskell:Conflicts},
+Provides: ${haskell:Provides},
+Description: ${haskell:ShortDescription}${haskell:ShortBlurb}
+  ${haskell:LongDescription}
+  .
+  ${haskell:Blurb}
