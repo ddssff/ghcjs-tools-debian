@@ -1,9 +1,9 @@
 --- old/utils/update_archives.sh	2014-07-05 11:23:05.938224014 -0700
 +++ new/utils/update_archives.sh	2014-07-05 11:30:31.590236462 -0700
-@@ -105,12 +105,12 @@
- git update-index --assume-unchanged lib/cache/shims.tar
- git update-index --assume-unchanged lib/cache/test.tar
+@@ -135,12 +135,12 @@
  
+ # fixme this is actually not enough to ensure that there is no cruft in the
+ # test tree, since git may ignore files
 -STATUS=`git status --porcelain`
 -if [ ${#STATUS} -gt 0 ]
 -then
@@ -17,6 +17,5 @@
 +#     exit 1
 +# fi
  
- if BRANCH=$(git symbolic-ref --short -q HEAD)
- then
-
+ # This is a simulation of git symbolic-ref --short -q HEAD, which doesn't work with
+ # older versions of git.  The --short option is supported by git-1.9.1.
